@@ -31,6 +31,7 @@ class App extends Component {
         <div>
           <Navbar user={state.user}></Navbar>
           <Routes></Routes>
+          <p>Prueba CM Conexión</p>
         </div>
       </AppContext.Provider>
     );
