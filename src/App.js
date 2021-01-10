@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import Navbar from "./components/Navbar"
 import Routes from './Routes';
 import AppContext from './AppContext';
-import {logout} from "./services/userWs"
+import {logout} from "./services/userWs";
+import Landing from './Landing';
+
 
 class App extends Component {
   state = {
@@ -25,18 +27,27 @@ class App extends Component {
 
   render() {
     const {setUser, state} = this;
+    
     return (
       <AppContext.Provider
       value={{setUser}}>
         <div>
+          
           <Navbar user={state.user}></Navbar>
           <Routes></Routes>
-          <p>Prueba CM Conexión</p>
+          
+          <p className="pstyle">Esta va a ser la Landing Page</p>
+          <Landing />
+
+          
+          
+          
         </div>
       </AppContext.Provider>
     );
   }
 }
+
 
 export default App;
 
