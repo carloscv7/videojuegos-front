@@ -56,6 +56,7 @@ export default function LandingImageCard({ place, checked }) {
           >
             {place.description}
           </Typography>
+          <button>Ingresar</button>
         </CardContent>
       </Card>
     </Collapse>
