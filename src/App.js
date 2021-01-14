@@ -11,6 +11,7 @@ import HomeCM from './components/pages/HomeCM';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import RegisterT from './components/pages/RegisterT';
 
 
 
@@ -63,6 +64,7 @@ class App extends Component {
                 <Route path='/services' component={Services}/>
                 <Route path='/products' component={Products}/>
                 <Route path='/sing-up' component={SignUp}/>
+                <Route path='/inscription' component={RegisterT}/>
               </Switch>
 
             </Router>
