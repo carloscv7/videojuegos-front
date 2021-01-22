@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {getVideogames} from './apiCore';
 import Card from './Card';
+import './main/cardsMain/CardsCM.css'
 
 
 const HomeAnt = () => {
@@ -24,20 +25,36 @@ const HomeAnt = () => {
 
   return (
     <div>
-      <p>Este es el componente HomeAnt</p>
-      
-      
+      <h1>¡Choose a tournament to win rewards and cash prizes!</h1>
+
+      <div> 
+
       <div className="container">
-      <div className="row">
-        {videogames.map((videogame, i) => (
-          <div key={i} className="col-lg-4 col-md-6 col-sm-6 col-sm-6">
-            <Card videogame={videogame} />
-          </div>
-        ))}
+        <div className="row">
+          {videogames.map((videogame, i) => (
+            <div key={i} className="col-lg-4 col-md-6 col-sm-6 col-sm-6">
+              <Card videogame={videogame} />    
+            </div>
+
+            
+          ))}
+        </div>
       </div>
+            
+
       </div>
+
     </div>
+        
+
+        
+      
+  
   )
 }
 
 export default HomeAnt;
+
+
+
+

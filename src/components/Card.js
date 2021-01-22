@@ -9,19 +9,41 @@ const Card = ({videogame}) => {
   const [count, setCount] = useState(videogame.count)
 
   return (
-    <div className="card m-10 card-cont">
-      <div className="">
-        <ShowImage className="img" item={videogame} url="videogame"/>
-        <p>{videogame.name}</p>
-        <p>${videogame.price}</p>
-        <p>{videogame.description}</p>
-          <Link to={{RegisterT}}>
-            <button className="btn btn-success">Ver Mas / Registrarse</button>
-          </Link>
+    
+    <div>
 
-          <RegisterT/>
-      </div>
+        <div>
+          <div className="row">
+            <div className="col-4-lg">
+                <div className="card">
+                    <ShowImage item={videogame} url="videogame"/>
+                    <div class="card-body">
+                      <p className="card-title">{videogame.name}</p>
+                      <p className="card-text">${videogame.price}</p>
+                      <p className="card-text">{videogame.description}</p>   
+                      <a href="/register" className="btn btn-primary">Register</a>
+                    </div>
+                    
+                    
+                    
+                  </div>
+
+              
+            </div>
+
+          </div>
+
+        </div>
+        
+  
+        
     </div>
+   
+
+      
+
+    
+    
   )
 }
 

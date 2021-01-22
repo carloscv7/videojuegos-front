@@ -4,15 +4,20 @@ import './ShowImage.css';
 
 const ShowImage = ({item, url}) => (
 
-        <div className="product-img">
-            <img 
-            src={`http://localhost:3000/api/torneovideogame/photo/${item._id}`}
-            alt={item.name}
-            className="mb-3 img-cont"
-            style={{maxHeight: "600px", maxWidth:"300px"}}
-            />
-        </div>
-    
+        
+            
+                <div>
+                    <img 
+                    src={`http://localhost:3000/api/torneovideogame/photo/${item._id}`}
+                    alt={item.name}
+                    className="card-img-top"
+                    style={{maxHeight: "200px", maxWidth:"300px"}}
+                    />
+                </div>
+       
+
+
+        
 )
 
 export default ShowImage; 

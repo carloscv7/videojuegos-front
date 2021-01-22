@@ -1,4 +1,5 @@
 .img-cont {
     width: 200px;
-    height: 120px;
+    height: 200px;
+    max-height: 200px;
   }

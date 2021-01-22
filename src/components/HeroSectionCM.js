@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from './Button';
 import './HeroSectionCM.css';
-import '../App.css';
+//import '../../App.css';
 
 export default function HeroSectionCM() {
     return (

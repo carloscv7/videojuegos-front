@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import CardsCM from '../CardsCM';
+import CardsCM from '../main/cardsMain/CardsCM';
 import Footer from '../Footer';
 import HeroSectionCM from '../HeroSectionCM';
 

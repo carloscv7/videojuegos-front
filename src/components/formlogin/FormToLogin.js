@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import './Form.css';
-import FormSignup from './FormSignup';
-import FormSuccess from './FormSuccess';
+import './FormLogin.css';
+import FormSignupLogin from './FormSignupLogin';
+import FormSuccessLogin from './FormSuccessLogin';
 
-const Form = () => {
+
+
+const FormToLogin = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -14,17 +16,16 @@ const Form = () => {
       <div className='form-container'>
         <span className='close-btn'>×</span>
         <div className='form-content-left'>
-          {/* <img className='form-img' src='../public/assets/esportarena2.jpg' alt='' /> */}
+          {/* <img className='form-img' src='img-2.svg' alt='spaceship' /> */}
         </div>
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <FormSignupLogin submitForm={submitForm} />
         ) : (
-          <FormSuccess />
+          <FormSuccessLogin />
         )}
       </div>
     </>
   );
 };
 
-export default Form;
-
+export default FormToLogin;

@@ -1,10 +1,10 @@
 import React from 'react';
-import validate from './validateInfo';
-import useForm from './useForm';
-import './Form.css';
+import validate from './validateInfoDos';
+import useFormDos from './useFormDos';
+import './FormDos.css';
 
-const FormSignup = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
+const FormSignupDos = ({ submitForm }) => {
+  const { handleChange, handleSubmit, values, errors } = useFormDos(
     submitForm,
     validate
   );
@@ -68,11 +68,11 @@ const FormSignup = ({ submitForm }) => {
           Sign up
         </button>
         <span className='form-input-login'>
-          Already have an account? Login <a href='#'>here</a>
+          Already have an account? Login <a href='/login'>here</a>
         </span>
       </form>
     </div>
   );
 };
 
-export default FormSignup;
+export default FormSignupDos;

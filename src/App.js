@@ -1,17 +1,20 @@
 import './App.css';
 import React, { Component } from 'react';
-import Navbar from "./components/Navbar";
-import Routes from './Routes';
 import AppContext from './AppContext';
 import {logout} from "./services/userWs";
-import Landing from './Landing';
 import NavbarCM from "./components/NavbarCM";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeCM from './components/pages/HomeCM';
-import Services from './components/pages/Services';
-import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
 import RegisterT from './components/pages/RegisterT';
+import Tournaments from './components/pages/Tournaments';
+import Login from './components/pages/Login';
+import ReadProducts from './components/pages/ReadProducts';
+import UpdateProducts from './components/pages/UpdateProducts';
+import DeleteProducts from './components/pages/DeleteProducts';
+import AddVideogame from './components/AddVideogame';
+import Signup from './components/signupform/Signup';
+
 
 
 
@@ -41,36 +44,29 @@ class App extends Component {
       <div>
           <AppContext.Provider
           value={{setUser}}>
-            <div>
-
-
-
-              <Navbar user={state.user}></Navbar>
-              <Routes></Routes>
-              
-              <p className="pstyle">Esta va a ser la Landing Page</p>
-              
-              <br/>
-              <br/>
-              <br/>
-            </div>
-          </AppContext.Provider>
-
+            
           <div>
             <Router>
-              <NavbarCM/>
+              <NavbarCM user={state.user}/>
               <Switch>
                 <Route path='/' exact component={HomeCM}/>
-                <Route path='/services' component={Services}/>
-                <Route path='/products' component={Products}/>
-                <Route path='/sing-up' component={SignUp}/>
-                <Route path='/inscription' component={RegisterT}/>
+                <Route path='/tournaments' component={Tournaments}/>
+                <Route path='/register' component={RegisterT}/>
+                <Route path='/login' component={Login}/>
+                <Route path='/signup' component={Signup}/>
+
+                {/* Rutas para el CRUD */}
+                <Route path='/addvideogame' component={AddVideogame}/> 
+                <Route path='/tournaments' component={Tournaments}/>
+                <Route path='/updateproducts' component={UpdateProducts}/>
+                <Route path='/deleteproducts' component={DeleteProducts}/>
+                
+
               </Switch>
 
             </Router>
-            
-            
           </div>
+          </AppContext.Provider>
 
       </div>
     );
