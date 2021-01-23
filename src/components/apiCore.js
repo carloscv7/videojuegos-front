@@ -148,3 +148,30 @@ export const getVideogames = () => {
         console.log(err)
       })
   }
+
+
+  //metodo para obtener torneos creados
+  export const getTournaments = () => {
+    return fetch(`http://localhost:3000/api/torneovideogame/torneovideogames`, {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json()
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+    //metodo para obtener torneos creados
+    export const getTournaments = () => {
+      return fetch(`http://localhost:3000/api/torneovideogame/torneovideogames`, {
+        method: 'GET'
+      })
+        .then(response => {
+          return response.json()
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
