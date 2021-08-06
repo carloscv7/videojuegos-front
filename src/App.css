@@ -2,3 +2,86 @@
   background-color: red;
   margin: 0 50px;
 }
+
+.nv-title{
+  margin-right: 20px;
+}
+
+.search-results{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#top-section{
+  height: 75px;
+}
+
+.div-inline{
+  display: inline-block;
+}
+
+.badge-1{
+  z-index: 1;
+  position: fixed;
+  left: 45%;
+  top: 10px;
+}
+
+.v-carousel{
+    width:640px;
+    height:360px;
+    background-color: black;
+}
+
+.v-carousel-item{
+  width: 100% !important;
+  text-align:center;
+}
+
+.carousel-img{
+  display: inline-block;
+  margin: auto;
+  width: 70%;
+  height: 350px;
+  margin: auto;
+}
+
+.edit-button{
+  width: 25px;
+}
+
+.red-border{
+  border: 1.5px solid red;
+  border-radius: 3px;
+}
+
+.product-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card-img{
+  align-self: flex-end;
+}
+
+.product-top{
+  display: flex;
+  flex-direction: row;
+}
+
+.product-section2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.product-name{
+  margin-bottom: 20px;
+}
+
+.product-price{
+  margin-right: 10px;
+}

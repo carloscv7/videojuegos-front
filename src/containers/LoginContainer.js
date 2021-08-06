@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import {login} from "../services/userWs"
+import AppContext from "../AppContext";
 
 class LoginContainer extends Component {
+    static contextType = AppContext;
 
     state = {
-        data:{}
+        data:{},
+        errorMsg: ""
     }
 
     handleChange = (event)=>{
@@ -19,29 +21,24 @@ class LoginContainer extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         console.log("Enviando datos");
-        login(this.state.data).then((response)=>{ 
-            this.setState({ data:{}})
-            localStorage.setItem( "user",JSON.stringify( response.data.user ) );
-            console.log(response.data);
-            //this.context.setUser(response.data.user)
-            this.props.history.push("/")
-
-        }).catch((error)=>{
-            console.log("hay un error",error)
+        this.context.login(this.state.data).then(()=>{
+            this.setState({ data:{}});
+            this.props.history.push("/");
+        }).catch((errorMsg)=>{
+            this.setState({errorMsg});
         });
-
-        
     }
 
     render() {
         const {handleChange, onSubmit} = this;
-        const {data} = this.state;
+        const {data, errorMsg} = this.state;
         return (
             <div>
                 <form onSubmit={onSubmit}>
                     <input type="email" name="email" onChange={handleChange} value={data["email"]?data["email"]:""}></input>
                     <input type="password" name="password" onChange={handleChange} value={data["password"]?data["password"]:""}></input>
                     <button>Entrar</button>
+                    {errorMsg?<div className="error">{errorMsg}</div>:""}
                 </form>
             </div>
         );

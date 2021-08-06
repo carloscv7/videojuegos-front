@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {signup} from "../services/userWs";
+import AppContext from "../AppContext";
 
 class SignupContainer extends Component {
+    static contextType = AppContext;
 
     state={
-        data:{},
+        data: {},
         error: ""
     }
 
@@ -20,27 +21,19 @@ class SignupContainer extends Component {
         event.preventDefault();
         console.log("Enviando datos");
         const {history} = this.props;
-        signup(this.state.data)
-            .then(response=>{
-                this.setState({data:{}});
-                this.setState({error:""});
-                console.log("Felicidades ", response);
-                history.push("/login");
-            }).catch(error=>{
-                this.setState({error: "Hubo un error al registrarse."});
-                console.log("Hubo un error al registrarse: ", error.response);
-            })
+        this.context.signup(this.state.data).then(()=>{
+            this.setState({data:{}, error: ""});
+            history.push("/login");
+        }).catch((errorMsg)=>{
+            this.setState({error: errorMsg[0]});
+        }
+        );
+
     }
 
     render() {
         const {handleChange, onSubmit} = this;
         const {data, error} = this.state;
-        let signupError;
-        if(error === ""){
-            signupError = "";
-        }else{
-            signupError = <div className="error">Hubo un error al registrarse</div>;
-        }
 
         return (
             <div>
@@ -51,19 +44,24 @@ class SignupContainer extends Component {
                     </label>
                     <input type="email" name="email" onChange={handleChange}
                     value={data["email"] ? data["email"] : ""}></input>
+                    <label for="username">
+                        Usuario:
+                    </label>
+                    <input type="text" name="username" onChange={handleChange}
+                    value={data["username"] ? data["username"] : ""}></input>
                     <label for="password">
-                        Password:
+                        Contraseña:
                     </label>
                     <input type="password" name="password" onChange={handleChange}
                     value={data["password"] ? data["password"] : ""}></input>
                     <label for="confirmPassword">
-                        Confirm password:
+                        Confirmar contraseña:
                     </label>
                     <input type="password" name="confirmPassword" onChange={handleChange}
                     value={data["confirmPassword"] ? data["confirmPassword"] : ""}></input>
                     <button>Registrarse</button>
                 </form>
-                {signupError}
+                {error?<div className="error">{error}</div>:""}
             </div>
         );
     }
